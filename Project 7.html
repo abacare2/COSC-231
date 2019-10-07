@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+Description:
+Create a grocery app. Keep track of the items. Be able to delete the first or last item.
+Author:  Anthony Bacarella, 2/27/18
+-->
+
+<head>
+  <meta charset="utf-8" />
+  <style>
+	div {
+		border-color: gray;
+		background-color: LightGreen;
+		margin: 50px;
+		padding: 10px;
+		border: 1px solid;
+	}
+	h1 {
+		text-align: center;
+	}
+	table{
+		text-align:right;
+		}
+	td,th{
+		padding: 10px;
+		}
+  </style>
+  <script type="text/javascript">
+
+  var items= [], costs=[], quantities=[], total=0, text ="";
+
+  function checkOut(){
+	displayReceipt();
+	
+	document.getElementById("receipt").innerHTML = text;
+	}
+  function insert(){
+     items.push(document.getElementById('item').value); 
+     costs.push(document.getElementById('cost').value);
+	 quantities.push(document.getElementById('quantity').value);
+     displayReceipt();
+	}
+  
+  function displayReceipt(){
+	total=0;
+	text="";
+	text="==============================================";
+	text+="<br /><h2>Mini-Mart EMU Receipt: A. Bacarella</h2>";
+
+	text+="<table><tr><th>Item</th><th>Quantity</th><th>Cost</th></tr>";
+	
+	for (var i = 0; i < items.length; i++) {
+		text += "<tr>";
+		text += "<td>" + items[i] +"</td>";
+		text += "<td>" + quantities[i] +"</td>";
+		text += "<td>" + costs[i] +"</td>";
+		text += "</tr>";
+	}
+	text += "</table>";
+	document.getElementById("receipt").innerHTML = text;
+}
+
+</script>
+</head>
+
+<body>
+  <div>
+	<h1>-- EMU Mini Mart --</h1>
+	<p>Enter your item information.</p>
+	<p>Submit the item by clicking the "Add to Cart"</p>
+	<p>Click on the "Checkout" button when done entering items.</p>
+	
+  <form onsubmit="checkOut()">
+	 <input id = "item" type = "text" size = "40" placeholder = "Item"><br />
+	 <input id = "cost" type = "text" size = "40" placeholder = "Cost"><br />
+	 <input id = "quantity" type = "text" size = "40" placeholder = "Quantity"><br />
+     <input type="reset" value="Add to Cart" onclick="insert()" />
+     <input type="submit" value="Checkout" onclick="checkOut()" />
+  </form>
+  <p id="receipt"></p>
+	</div>
+
+
+</body>
+</html>

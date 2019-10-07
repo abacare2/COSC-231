@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ball</title>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: brown;
+}
+#ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid;
+  border-width: 2px;
+  position:absolute;
+  background-color: white;
+}
+</style>
+</head>
+<body>
+
+<p>
+<button onclick="myMove()">Click Me</button>
+</p> 
+
+<div id ="container">
+<div id ="ball"></div>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("ball");   
+  var xpos = 0;
+  var ypos = 0;
+  var id = setInterval(frame, 5);
+  function frame() 
+  { 
+     if(xpos < 173 && ypos < 348)
+    {
+      xpos++;
+	  ypos = ypos+2;
+      elem.style.left = xpos + 'px'; 
+	  elem.style.top = ypos + 'px'; 
+    }
+	 else if(xpos >= 173 && ypos <= 350 && xpos < 346)
+    {
+      xpos++;
+	  ypos = ypos-2;
+      elem.style.left = xpos + 'px'; 
+	  elem.style.top = ypos + 'px'; 
+    }
+
+   }
+ }
+</script>
+
+</body>
+</html>
+
+

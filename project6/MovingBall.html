@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>Anthony's Shop</title>
+   <script>
+   		function fillin(){  	    		 	    		
+   	    		var price1=4;
+   	    		var price2=90;
+   	    		var price3=250;
+   	    		var firstCost = document.getElementById('item1').value * price1;
+   	    		var secondCost = document.getElementById('item2').value * price2;
+   	    		var thirdCost = document.getElementById('item3').value * price3;
+   	    		var total = firstCost + secondCost + thirdCost;
+   	    		var story = "Your Total is: "+total;
+   	    		document.getElementById('outputStory').innerHTML = story;
+				alert(story);
+   	    		}
+
+   	    
+   	    function changeGreen1(){
+   	    document.getElementById("item1").style.background = "green";
+   	    document.getElementById("item1").style.color = "yellow";
+   	    }
+   	    function changeGreen2(){
+   	    document.getElementById("item2").style.background = "green";
+   	    document.getElementById("item2").style.color = "yellow";
+   	    }
+   	    function changeGreen3(){
+   	    document.getElementById("item3").style.background = "green";
+   	    document.getElementById("item3").style.color = "yellow";
+   	    }		
+		function resetButton(){
+		 document.getElementById("inForm50").reset;
+		 }
+
+   </script>
+    
+    <style> 
+     input.yellowBox:hover{
+     background-color:yellow;} 
+       .bodymargin{
+       		margin: 15px;
+       		font-family : monospace;}     
+       .leftText{
+      	   text-align: left;
+      	   font-family : Times New Roman;}      	   	   		
+		table.table2 {
+			border-spacing: 10px;
+			border-collapse: collapse;
+			border:solid thin;
+			margin: 20px;
+			padding: 2px;}					
+		.taBord{
+			border-spacing: 10px;
+			border-collapse: collapse;
+			border: solid thin;}
+		.td50{
+		    text-align:center;
+			border: none;
+			width: 50%;}
+		.inForm50{
+			text-align:center;
+			border: none;
+			width: 50%;}
+		
+    </style>
+  </head>
+
+  <body class = "bodymargin">
+		
+		<h2 class ="leftText">My Item Shop Menu</h2>
+        
+        <table class = "table2">
+        	<tr class = "taBord">
+        		<th>Items</th>
+        		<th>Quantity</th>
+        	</tr>
+        	<tr>
+        		<td class ="td50"> Item One(4 each)</td>
+        		<td class ="inForm50"> <input class="yellowBox" id="item1" type="text" onclick ="changeGreen1()"> </td>
+        	</tr>
+        	<tr>
+        		<td class ="td50"> Item Two(90 each)</td>
+        		<td class ="inForm50"> <input class="yellowBox" id="item2" type="text" onclick ="changeGreen2()"> </td>
+        	</tr>
+        	<tr>
+        		<td class ="td50"> Item Three(250 each)</td>
+        		<td class ="inForm50"> <input class="yellowBox" id="item3" type="text" onclick ="changeGreen3()"> </td>
+        	</tr>
+        </table> 
+        
+    <button placeholder="total" onclick="fillin()">Click for Total</button>
+    </br>
+    <button placeholder="reset" onclick="resetButton()">Reset for new order</button>
+
+	<h2 id ="outputStory"></h2>
+  </body>
+</html> 
+ 
